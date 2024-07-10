@@ -13,7 +13,7 @@ export class AuthorServiceService {
 
   getAllAuthors(): Observable<Author[]> {
     {
-      return this.httpClient.get<Author[]>(`${this.apiUrl}/auteur`);
+      return this.httpClient.get<Author[]>(`${this.apiUrl}/authors`);
     }
   }
 
