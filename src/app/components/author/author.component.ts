@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Author } from '../../models/author.model';
 import { AuthorServiceService } from '../../service/author-service.service';
 import { BookServiceService } from '../../service/book-service.service';
@@ -11,7 +11,10 @@ import { BookServiceService } from '../../service/book-service.service';
   styleUrl: './author.component.css',
 })
 export class AuthorComponent {
-  auteur: Author[] = [];
+  @Input()
+  // auteurs: any;
+  // auteur: Author[] = [];
+  auteurDetail: any;
 
   constructor(
     private authorService: AuthorServiceService, // Assuming AuthorService is a service that fetches authors from an API
@@ -21,6 +24,14 @@ export class AuthorComponent {
   ngOnInit(): void {
     this.authorService
       .getAllAuthors()
-      .subscribe((reponseFilm) => (this.auteur = reponseFilm));
+      .subscribe((responseAuthor) => (this.auteurDetail = responseAuthor));
+    console.log(this.auteurDetail);
+  }
+
+  deleteOneAuthor(item: any): void {
+    this.authorService.deleteAuthor(item.id).subscribe();
+  }
+  updateOneAuthor(item: any): void {
+    this.authorService.updateAuthor(item.id, item).subscribe();
   }
 }

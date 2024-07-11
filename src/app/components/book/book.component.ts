@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { Book } from '../../models/book.model';
+import { Component, Input } from '@angular/core';
+import { BookServiceService } from '../../service/book-service.service';
+import { AuthorServiceService } from '../../service/author-service.service';
+import Books from '../../models/book.model';
 
 @Component({
   selector: 'app-book',
@@ -9,5 +11,18 @@ import { Book } from '../../models/book.model';
   styleUrl: './book.component.css',
 })
 export class BookComponent {
-  book: Book = new Book();
+  @Input()
+  book: any;
+
+  constructor(
+    private authorService: AuthorServiceService, // Assuming AuthorService is a service that fetches authors from an API
+    private bookService: BookServiceService // Assuming AuthorService is a service that fetches authors from an API
+  ) {}
+
+  ngOnInit(): void {
+    this.bookService
+      .getAllBooks()
+      .subscribe((responseBook) => (this.book = responseBook));
+    console.log(this.book);
+  }
 }

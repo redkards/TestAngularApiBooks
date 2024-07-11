@@ -4,7 +4,7 @@ import { AuthorServiceService } from '../../service/author-service.service';
 import { BookServiceService } from '../../service/book-service.service';
 import { BookComponent } from '../book/book.component';
 import { AuthorComponent } from '../author/author.component';
-import { Book } from '../../models/book.model';
+import Books from '../../models/book.model';
 
 @Component({
   selector: 'app-view',
@@ -14,12 +14,25 @@ import { Book } from '../../models/book.model';
   styleUrl: './view.component.css',
 })
 export class ViewComponent {
-  auteur: Author[] = [];
+  auteursList: Author[] = [];
 
-  livre: Book[] = [];
+  livres: Books[] = [];
 
   constructor(
     private authorService: AuthorServiceService, // Assuming AuthorService is a service that fetches authors from an API
     private bookService: BookServiceService // Assuming AuthorService is a service that fetches authors from an API
   ) {}
+
+  ngOnInit(): void {
+    this.authorService.getAllAuthors().subscribe((reponseAuthor) => {
+      this.auteursList = reponseAuthor;
+
+      console.log(this.auteursList);
+    });
+
+    this.bookService.getAllBooks().subscribe((reponseBook) => {
+      this.livres = reponseBook;
+      console.log(this.livres);
+    });
+  }
 }

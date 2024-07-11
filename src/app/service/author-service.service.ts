@@ -13,23 +13,26 @@ export class AuthorServiceService {
 
   getAllAuthors(): Observable<Author[]> {
     {
-      return this.httpClient.get<Author[]>(`${this.apiUrl}/author`);
+      return this.httpClient.get<Author[]>(`${this.apiUrl}/api/authors`);
     }
   }
 
   getAuthorById(id: number): Observable<Author> {
-    return this.httpClient.get<Author>(`${this.apiUrl}/author/${id}`);
+    return this.httpClient.get<Author>(`${this.apiUrl}/api/authors/${id}`);
   }
 
   addAuthor(author: Author): Observable<Author> {
-    return this.httpClient.post<Author>(`${this.apiUrl}/author`, author);
+    return this.httpClient.post<Author>(`${this.apiUrl}/api/authors`, author);
   }
 
   updateAuthor(id: number, author: Author): Observable<Author> {
-    return this.httpClient.put<Author>(`${this.apiUrl}/author/${id}`, author);
+    return this.httpClient.put<Author>(
+      `${this.apiUrl}/api/authors/${id}`,
+      author
+    );
   }
 
   deleteAuthor(id: number): Observable<Author> {
-    return this.httpClient.delete<Author>(`${this.apiUrl}/author/${id}`);
+    return this.httpClient.delete<Author>(`${this.apiUrl}/api/authors/${id}`);
   }
 }
