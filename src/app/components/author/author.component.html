@@ -1,14 +1,17 @@
 <p>author works!</p>
+
+<button type="button" routerLink="creer">create</button>
+
 @for (item of auteurDetail; track $index) {
 
 <div class="card" style="width: 18rem;">
   <ul class="list-group list-group-flush">
     <li class="list-group-item">{{item.id}}</li>
-    <li class="list-group-item">{{item.firstName}}</li>
-    <li class="list-group-item">{{item.lastName}}</li>
+    <li class="list-group-item">{{item.FirstName}}</li>
+    <li class="list-group-item">{{item.LastName}}</li>
   </ul>
 </div>
 
-<button type="submit" (click)="updateOneAuthor(item)">edit</button>
-<button type="submit" (click)="deleteOneAuthor(item)">delete</button>
+<button type="button" routerLink="modifier">edit</button>
+<button type="button" (click)="deleteOneAuthor(item.id)">delete</button>
 }

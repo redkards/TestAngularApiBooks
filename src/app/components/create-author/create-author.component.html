@@ -1,0 +1,35 @@
+<h2>creation auteur</h2>
+
+<form [formGroup]="createAuteur" (ngSubmit)="onSubmit()">
+
+  <!-- <label for="id">id :</label>
+
+  <input type="text" id="id" formControlName="id">
+
+  @if (submitted && form['id'].invalid) {
+  <span>id invalid</span>
+  }@else if (form['id'].hasError('minlength')) {
+  <span>id doit contenir au moins 1 caractère</span>
+  } -->
+  <div class="mt-4">
+    <label for="FirstName">prenom :</label>
+    <input type="text" id="FirstName" formControlName="FirstName">
+    @if (submitted && form['FirstName'].invalid) {
+    <span>prenom invalid</span>
+    }@else if (form['FirstName'].hasError('minlength')) {
+    <span>le prenom doit contenir au moins 3 caractères</span>
+    }
+
+    <label for="LastName">nom :</label>
+    <input type="text" id="LastName" formControlName="LastName">
+    @if (submitted && form['LastName'].invalid) {
+    <span>nom invalid</span>
+    }@else if (form['LastName'].hasError('minlength')) {
+    <span>le nom doit contenir au moins 3 caractères</span>
+    }
+
+
+    <button type="submit">creer</button>
+
+  </div>
+</form>

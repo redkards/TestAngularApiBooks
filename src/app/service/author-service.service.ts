@@ -25,11 +25,8 @@ export class AuthorServiceService {
     return this.httpClient.post<Author>(`${this.apiUrl}/api/authors`, author);
   }
 
-  updateAuthor(id: number, author: Author): Observable<Author> {
-    return this.httpClient.put<Author>(
-      `${this.apiUrl}/api/authors/${id}`,
-      author
-    );
+  updateAuthor(author: Author): Observable<Author> {
+    return this.httpClient.put<Author>(`${this.apiUrl}/api/authors`, author);
   }
 
   deleteAuthor(id: number): Observable<Author> {

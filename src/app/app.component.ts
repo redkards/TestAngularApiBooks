@@ -4,6 +4,8 @@ import { AuthorComponent } from './components/author/author.component';
 import { BookComponent } from './components/book/book.component';
 import { ViewComponent } from './components/view/view.component';
 import { NavBarComponent } from './commons/nav-bar/nav-bar.component';
+import { CreateAuthorComponent } from './components/create-author/create-author.component';
+import { EditAuthorComponent } from './components/edit-author/edit-author.component';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +16,8 @@ import { NavBarComponent } from './commons/nav-bar/nav-bar.component';
     BookComponent,
     ViewComponent,
     NavBarComponent,
+    CreateAuthorComponent,
+    EditAuthorComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
