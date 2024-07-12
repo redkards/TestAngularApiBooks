@@ -1,0 +1,41 @@
+<h2>modification livres</h2>
+
+
+<form [formGroup]="book" (ngSubmit)="updateOneBook()">
+
+  <!-- <label for="id">id :</label>
+
+  <input type="text" id="id" formControlName="id">
+
+  @if (submitted && form['id'].invalid) {
+  <span>id invalid</span>
+  }@else if (form['id'].hasError('minlength')) {
+  <span>id doit contenir au moins 1 caractère</span>
+  } -->
+
+  <label for="titre">titre :</label>
+  <input type="text" id="titre" formControlName="title">
+  @if (submitted && form['title'].invalid) {
+  <span>prenom invalid</span>
+  }@else if (form['title'].hasError('minlength')) {
+  <span>le titre doit contenir au moins 3 caractères</span>
+  }
+
+  <label for="coverText">couverture :</label>
+  <input type="text" id="coverText" formControlName="coverText">
+  @if (submitted && form['coverText'].invalid) {
+  <span>nom invalid</span>
+  }@else if (form['coverText'].hasError('minlength')) {
+  <span>la couverture doit contenir au moins 3 caractères</span>
+  }
+  <label for="comment">commentaires :</label>
+  <input type="text" id="comment" formControlName="comment">
+
+  <label for="idAuteur">id auteur :</label>
+  <input type="text" id="idAuteur" formControlName="idAuthor">
+
+
+
+  <button type="submit">modifier</button>
+
+</form>

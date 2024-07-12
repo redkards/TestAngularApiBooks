@@ -1,7 +1,9 @@
+import { Author } from './author.model';
+
 export default interface Book {
   id: number;
   title: string;
   coverText: string;
-  authorId: number;
+  author: Author;
   comment: string;
 }

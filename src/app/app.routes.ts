@@ -5,6 +5,7 @@ import { ViewComponent } from './components/view/view.component';
 import { NotFoundComponent } from './commons/not-found/not-found.component';
 import { CreateAuthorComponent } from './components/create-author/create-author.component';
 import { EditAuthorComponent } from './components/edit-author/edit-author.component';
+import { EditBookComponent } from './components/edit-book/edit-book.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'author', pathMatch: 'full' },
@@ -18,6 +19,8 @@ export const routes: Routes = [
   { path: 'auteur/creer', component: CreateAuthorComponent },
 
   { path: 'auteur/modifier', component: EditAuthorComponent },
+
+  { path: 'livre/modifier/:id', component: EditBookComponent },
 
   { path: '**', component: NotFoundComponent },
 ];

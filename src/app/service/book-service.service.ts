@@ -21,12 +21,12 @@ export class BookServiceService {
     return this.httpClient.get<Book>(`${this.apiUrl}/api/books/${id}`);
   }
 
-  addBook(author: Book): Observable<Book> {
-    return this.httpClient.post<Book>(`${this.apiUrl}/api/books`, author);
+  addBook(book: Book): Observable<Book> {
+    return this.httpClient.post<Book>(`${this.apiUrl}/api/books`, book);
   }
 
-  updateBook(id: number, author: Book): Observable<Book> {
-    return this.httpClient.put<Book>(`${this.apiUrl}/api/books/${id}`, author);
+  updateBook(book: Book): Observable<Book> {
+    return this.httpClient.put<Book>(`${this.apiUrl}/api/books`, book);
   }
 
   deleteBook(id: number): Observable<Book> {

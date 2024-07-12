@@ -45,10 +45,6 @@ export class CreateAuthorComponent {
     }
   }
 
-  ngOnInit(): void {
-    this.authorService.addAuthor(this.createAuteur.value).subscribe();
-  }
-
   get form() {
     return this.createAuteur.controls;
   } // getter to access form controls

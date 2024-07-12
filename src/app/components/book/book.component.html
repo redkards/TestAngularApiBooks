@@ -4,12 +4,14 @@
 
 <div class="card" style="width: 18rem;">
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">{{item.id}}</li>
-    <li class="list-group-item">{{item.title}}</li>
-    <li class="list-group-item">{{item.coverText}}</li>
-    <li class="list-group-item">{{item.comment}}</li>
+    <li class="list-group-item">id : {{item.id}}</li>
+    <li class="list-group-item">titre : {{item.title}}</li>
+    <li class="list-group-item">couverture : {{item.coverText}}</li>
+    <li class="list-group-item">commentaires : {{item.comment}}</li>
+    <li class="list-group-item"> nom auteur : {{item.author.LastName}} <br> prenom auteur : {{item.author.FirstName}}
+      <br> id auteur : {{item.author.id}}
+    </li>
   </ul>
+  <button type="submit" routerLink="modifier/{{item.id}}">modifier</button>
 </div>
-
-
 }
