@@ -18,7 +18,7 @@ export const routes: Routes = [
 
   { path: 'auteur/creer', component: CreateAuthorComponent },
 
-  { path: 'auteur/modifier', component: EditAuthorComponent },
+  { path: 'auteur/modifier/:id', component: EditAuthorComponent },
 
   { path: 'livre/modifier/:id', component: EditBookComponent },
 

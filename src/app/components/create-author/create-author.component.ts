@@ -6,6 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-author',
@@ -25,25 +26,27 @@ export class CreateAuthorComponent {
 
   constructor(
     private formB: FormBuilder,
-    private authorService: AuthorServiceService
+    private authorService: AuthorServiceService,
+    private router: Router // added Router to navigate to home page after form submission
   ) {}
 
-  addOneAuthor(author: any): void {
-    this.authorService.addAuthor(author).subscribe();
+  addOneAuthor(): void {
+    this.authorService.addAuthor(this.createAuteur.value).subscribe();
+    this.router.navigate(['/auteur']);
   }
 
-  onSubmit(): boolean {
-    console.log(this.createAuteur.value);
-    // send the form data to your backend here
-    this.createAuteur.reset(); // reset the form after submission
-    this.submitted = true; // set submitted to true to display success message
-    if (this.createAuteur.invalid) {
-      return false;
-    } else {
-      this.addOneAuthor(this.createAuteur.value);
-      return true;
-    }
-  }
+  // onSubmit(): boolean {
+  //   console.log(this.createAuteur.value);
+  //   // send the form data to your backend here
+  //   this.submitted = true; // set submitted to true to display success message
+  //   this.createAuteur.reset(); // reset the form after submission
+  //   if (this.createAuteur.invalid) {
+  //     return false;
+  //   } else {
+  //     this.addOneAuthor(this.createAuteur.value);
+  //     return true;
+  //   }
+  // }
 
   get form() {
     return this.createAuteur.controls;

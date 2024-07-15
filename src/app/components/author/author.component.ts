@@ -39,6 +39,6 @@ export class AuthorComponent {
     console.log(autorFilter);
   }
   updateOneAuthor(item: any): void {
-    this.authorService.updateAuthor(item).subscribe();
+    this.authorService.updateAuthor(item, item.id).subscribe();
   }
 }
